@@ -1,37 +1,37 @@
+import { useState, useEffect } from 'react';
 import Card from '../components/card';
 import { Link } from 'react-router-dom';
 
 function List() {
-    const productos = [
-        {
-            id: 1,
-            title: "calcetin mujer",
-            description: "algodon, estampado floral",
-            price: 8990,
-        },
-        {
-            id: 1,
-            title: "caja calcetin mujer x3",
-            description: "algodon, estampado geometrico",
-            price: 24990,
-        },
-        {
-            id: 1,
-            title: "calcetin corto mujer",
-            description: "bamboo, deportivo",
-            price: 5990,
-        },
-    ];
+
+    
+    const [mascotas, setMascotas] = useState([]);
+
+    useEffect(() => {
+        fetch(`https://huachitos.cl/api/animales`)
+            .then((respuesta) => {
+                if (respuesta.ok) {
+                    return respuesta.json();
+                } else {
+                    throw new Error("Hubo un error");
+                }
+            })
+            .then((result) => {
+                setMascotas(result.data);
+                console.log(result);
+            })
+            .catch((error) => console.log(error));
+    },[]);
 
 
     return (
         <>
-            <h1>Catalogo-Lista</h1>
+            <h1>Catalogo de Mascotas</h1>
             <Link to='/home' className="btn btn-primary">Volver al Home</Link>
             <Link>
-                {productos.map((producto) => {
+                {mascotas.map((mascota) => {
                     return (
-                        <Card key={producto.id} producto={producto} />
+                        <Card key={mascota.id} mascota={mascota} />
                     )
                 })}
             </Link>
