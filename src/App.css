@@ -1,0 +1,20 @@
+.pataDerecha{
+    font-size: 30px;
+    margin-inline: 40px;
+    transform: rotateZ(-35deg);
+}
+
+.pataIzquierda{
+    font-size: 30px;
+    margin-inline: 20px;
+    margin-top: 60px;
+    transform: rotateZ(-125deg);
+}
+
+.navbar{
+    background-color:#83c396
+}
+
+.card{
+    margin-top: 10px;
+}
