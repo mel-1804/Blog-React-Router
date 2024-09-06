@@ -4,7 +4,7 @@ import '../App.css';
 function Card({mascota}) {
     return (
         <>
-            <div className="card" style={{ width: "18rem" }}>
+            <div className="card col-4" style={{ width: "18rem" }}>
                 <img src={mascota.imagen} className="card-img-top" alt="..." />
                 <div className="card-body">
                     <h5 className="card-title">{mascota.nombre}</h5>

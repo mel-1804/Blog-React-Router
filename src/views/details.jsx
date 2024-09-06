@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import '../App.css';
+import Navbar from '../components/navbar';
 
 function Details() {
     const [mascota, setMascota] = useState({});
@@ -22,23 +23,25 @@ function Details() {
             })
             .catch((error) => console.log(error));
     }, []);
+console.log(mascota)
 
     return (
         <>
-            <div className="card mb-3">
-                <div className="row g-0">
-                    <div className="col-md-4">
-                        <img src={mascota.imagen} className="img-fluid rounded-start" alt="..."/>
-                    </div>
-                    <div className="col-md-8">
-                        <div className="card-body">
-                            <h5 className="card-title">{mascota.nombre}</h5>
-                            <p className="card-text">{mascota.edad}, {mascota.genero} {mascota.desc_fisica}</p>
-                            <p className="card-text"><small className="text-muted">Región: {mascota.region}</small></p>
+            <Navbar></Navbar>
+                <div className="card mb-3">
+                    <div className="row g-0">
+                        <div className="col-md-4">
+                            <img src={mascota.imagenes && mascota.imagenes[0].imagen} className="img-fluid rounded-start" alt="..."/>
+                        </div>
+                        <div className="col-md-8">
+                            <div className="card-body">
+                                <h5 className="card-title">{mascota.nombre}</h5>
+                                <p className="card-text">{mascota.edad}, {mascota.genero} {mascota.desc_fisica}</p>
+                                <p className="card-text"><small className="text-muted">Región: {mascota.region}</small></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </>
     );
 }
