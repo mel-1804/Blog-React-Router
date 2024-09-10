@@ -23,8 +23,9 @@ function Details() {
             })
             .catch((error) => console.log(error));
     }, []);
-console.log(mascota)
 
+    console.log(mascota.desc_fisica)
+    
     return (
         <>
             <Navbar></Navbar>
@@ -36,7 +37,7 @@ console.log(mascota)
                         <div className="col-md-8">
                             <div className="card-body">
                                 <h5 className="card-title">{mascota.nombre}</h5>
-                                <p className="card-text">{mascota.edad}, {mascota.genero} {mascota.desc_fisica}</p>
+                                <p className="card-text">{mascota.edad}, {mascota.genero} {mascota.desc_fisica?.replace(/<p>/g, "").replace(/<\/p>/g, "")}</p>
                                 <p className="card-text"><small className="text-muted">Región: {mascota.region}</small></p>
                             </div>
                         </div>
