@@ -5,6 +5,7 @@ import List from './views/list.jsx';
 import Details from './views/details.jsx';
 import "bootstrap/dist/css/bootstrap.css";
 import NotFound from './views/not-found.jsx';
+import injectContext from './store/appContext.jsx';
 
 function App() {
   return (
@@ -21,4 +22,4 @@ function App() {
   )
 }
 
-export default App
+export default injectContext(App);

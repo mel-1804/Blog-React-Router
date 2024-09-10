@@ -24,8 +24,7 @@ function Details() {
             .catch((error) => console.log(error));
     }, []);
 
-    console.log(mascota.desc_fisica)
-    
+     
     return (
         <>
             <Navbar></Navbar>

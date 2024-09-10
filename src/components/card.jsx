@@ -8,7 +8,7 @@ function Card({mascota}) {
                 <img src={mascota.imagen} className="card-img-top" alt="..." />
                 <div className="card-body">
                     <div className='tituloCard d-flex justify-content-between'>
-                        <h5 className="card-title">{mascota.nombre}</h5><i class="fa-regular fa-heart"></i>
+                        <h5 className="card-title">{mascota.nombre}</h5><i className="fa-regular fa-heart"></i>
                     </div>
                     <p className="card-text">{mascota.tipo}, {mascota.edad}</p>
                     <Link to={`/details/${mascota.id}`} className="btn btn-secondary">
