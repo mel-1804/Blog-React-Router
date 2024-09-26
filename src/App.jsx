@@ -3,7 +3,7 @@ import './App.css';
 import Home from './views/home.jsx';
 import List from './views/list.jsx';
 import Details from './views/details.jsx';
-import "bootstrap/dist/css/bootstrap.css";
+// import "bootstrap/dist/css/bootstrap.css";
 import NotFound from './views/not-found.jsx';
 import injectContext from './store/appContext.jsx';
 

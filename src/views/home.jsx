@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import Navbar from '../components/navbar'
 import '../App.css';
+import { useContext } from 'react';
+import { Context } from '../store/appContext';
 
 function Home() {
     return (
