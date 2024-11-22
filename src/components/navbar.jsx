@@ -18,6 +18,17 @@ function Navbar() {
     }
   };
 
+  const handleViewAllFavorites = () => {
+    const { favoritos } = store;
+
+    if (favoritos.length > 0) {
+      const favoriteIds = favoritos.map((mascota) => mascota.id).join(",");
+      navigate(`/list?favorites=${encodeURIComponent(favoriteIds)}`);
+    } else {
+      alert("Aún no has agregado mascotas a tus favoritos");
+    }
+  };
+
   return (
     <>
       <nav className="navbar navbar-light">
@@ -41,7 +52,7 @@ function Navbar() {
 
           <li className="nav-item dropdown" style={{ listStyleType: "none" }}>
             <a
-              className="nav-link dropdown-toggle mx-4"
+              className="nav-link dropdown-toggle me-5"
               href="#"
               id="navbarDropdownMenuLink"
               role="button"
@@ -51,17 +62,30 @@ function Navbar() {
               Favoritos
             </a>
             <ul
-              className="dropdown-menu"
+              className="dropdown-menu dropdown-menu-end"
               aria-labelledby="navbarDropdownMenuLink"
             >
-              {favoritos.length == 0 && <span>Vacío</span>}
+              {favoritos.length === 0 && <span>Vacío</span>}
               {favoritos.map((mascota) => (
                 <li key={mascota.id}>
-                  <a className="dropdown-item" href="#">
+                  <Link className="dropdown-item" to={`/details/${mascota.id}`}>
                     {mascota.nombre}
-                  </a>
+                  </Link>
                 </li>
               ))}
+              {favoritos.length > 0 && (
+                <li>
+                  <button
+                    className="dropdown-item text-center text-primary"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleViewAllFavorites();
+                    }}
+                  >
+                    Ver todos mis favoritos
+                  </button>
+                </li>
+              )}
             </ul>
           </li>
         </div>

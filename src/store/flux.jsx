@@ -15,12 +15,14 @@ const getState = ({ getStore, setStore }) => {
       },
       addFavorites: (favorito) => {
         const { favoritos } = getStore();
-        setStore({ favoritos: [...favoritos, favorito] });
+        if (!favoritos.some((fav) => fav.id === favorito.id)) {
+          setStore({ favoritos: [...favoritos, favorito] });
+        }
       },
       removeFavorites: (mascota) => {
         const { favoritos } = getStore();
         const nuevosFavoritos = favoritos.filter(
-          (favorito) => favorito != mascota
+          (favorito) => favorito.id !== mascota.id
         );
         setStore({ favoritos: nuevosFavoritos });
       },
